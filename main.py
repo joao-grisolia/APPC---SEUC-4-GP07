@@ -1,7 +1,10 @@
 import os
 
 lista = []
-lista_zonas = []
+listaZonasVermelhas = []
+listaZonasVerde = []
+
+
 def main():
     os.system('cls')
     nome = str(input('Digite seu nome: ')).strip()
@@ -30,18 +33,30 @@ def ajusteTermico(leitura):
 def verificarZona(leitura):
     
     if 120 <= leitura <= 180:
+        listaZonasVerde.append("verde")
         return 'Verde'
     elif leitura < 250:
         return 'Amarela'
     else:
-        lista_zonas.append('Vermelha')
-        if lista_zonas.count('Vermelha') >= 2:
+        listaZonasVermelhas.append('Vermelha')
+        if listaZonasVermelhas.count('Vermelha') >= 2:
             print('Sistema interrompido devido a 2 leituras consecutivas na Zona Vermelha.')
             metricasFinais()
         return 'Vermelha'
         
 
 def metricasFinais():
-    return False
+    soma=0
+    for i in range(len(lista)):
+      soma+=lista[i]
+      i+=1
+    menorrecebe= lista.min()
+    verde=len(lista)/len(listaZonasVerde)
+    travamento=False
+    if listaZonasVermelhas.count('Vermelha') >= 2:
+        travamento=True
+    
+    
+
 
 main()
