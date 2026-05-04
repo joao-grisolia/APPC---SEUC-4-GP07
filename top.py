@@ -39,10 +39,6 @@ def banner():
 
 def ler_nome_operador():
     nome = input("Digite o nome do operador: ")
-    while len(nome.strip()) == 0:
-        print(VML + "  [ERRO] O nome do operador nao pode ser vazio." + RESET)
-        nome = input("Digite o nome do operador: ")
-    return nome.strip()
 
 def ler_inteiro_positivo(mensagem):
     valor = int(input(mensagem))
